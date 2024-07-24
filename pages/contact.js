@@ -5,7 +5,7 @@ const contact = () => {
     <>
       <div
         className="flex justify-center p-6 md:p-10 2xl:p-8 relative bg-no-repeat bg-center bg-cover"
-        style={{ backgroundImage: 'url("/page-header.jpg")' }}
+        style={{ backgroundImage: 'url("/rental-banner.jpg")' }}
       >
         <div className="absolute top-0 start-0 bg-black w-full h-full opacity-50 transition-opacity duration-500 group-hover:opacity-80"></div>
         <div className="w-full flex items-center justify-center relative z-10 py-10 md:py-14 lg:py-20 xl:py-24 2xl:py-32">

@@ -5,8 +5,10 @@ import { ToastContainer, toast } from "react-toastify";
 import { useState, useEffect } from "react";
 import OrderConfirmationModal from "./OrderConfirmationModal";
 import { useRouter } from "next/router";
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+// const { SendMail } = require("../Middleware/sendMail");
 
-const checkout = ({ cart, addtoCart, clearCart, removeQty, subTotal }) => {
+function checkout({ cart, addtoCart, clearCart, removeQty, subTotal }) {
   const [form, setform] = useState({
     email: "",
     firstName: "",
@@ -74,6 +76,32 @@ const checkout = ({ cart, addtoCart, clearCart, removeQty, subTotal }) => {
         toast.success("Order placed successfully!");
         clearCart(); // Clear the cart after successful submission
         setShowConfirmationModal(true);
+        // Send confirmation email
+        const emailSubject = "Order Confirmation";
+        const emailText = `Hi ${firstName},\n\nYour order has been placed successfully!\n\nOrder Details:\n${JSON.stringify(cart, null, 2)}`;
+        // const emailHtml = `<p>Hi ${firstName},</p><p>Your order has been placed successfully!</p><p>Order Details:</p><pre>${JSON.stringify(
+        //   cart,
+        //   null,
+        //   2
+        // )}</pre>`;
+        const emailHtml = generateOrderConfirmationHtml(firstName, cart);
+
+        const emailResponse = await fetch("http://localhost:3000/api/sendEmail", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            to: email,
+            subject: emailSubject,
+            text: emailText,
+            html: emailHtml,
+          }),
+        });
+
+        if (!emailResponse.ok) {
+          throw new Error("Failed to send confirmation email");
+        }
       } else {
         // API call failed
         toast.error("Failed to submit the order. Please try again.");
@@ -84,6 +112,45 @@ const checkout = ({ cart, addtoCart, clearCart, removeQty, subTotal }) => {
         "An error occurred while submitting the order. Please try again later."
       );
     }
+  };
+
+  const generateOrderConfirmationHtml = (firstName, cart) => {
+    let itemsHtml = "";
+    Object.keys(cart).forEach(key => {
+      const item = cart[key];
+      itemsHtml += `
+        <tr>
+          <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">
+            <img src="${item.img}" alt="${item.name}" style="width: 50px; height: auto;" />
+          </td>
+          <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">${item.name}</td>
+          <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">${item.qty}</td>
+          <td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">${item.price}</td>
+        </tr>
+      `;
+    });
+
+    return `
+      <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+        <h2>Order Confirmation</h2>
+        <p>Hi ${firstName},</p>
+        <p>Your order has been placed successfully!</p>
+        <h3>Order Details</h3>
+        <table style="border-collapse: collapse; width: 100%;">
+          <thead>
+            <tr>
+              <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Product</th>
+              <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Name</th>
+              <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Quantity</th>
+              <th style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${itemsHtml}
+          </tbody>
+        </table>
+      </div>
+    `;
   };
   const router = useRouter();
   useEffect(() => {
@@ -105,6 +172,7 @@ const checkout = ({ cart, addtoCart, clearCart, removeQty, subTotal }) => {
       progress: undefined,
     });
   }, []);
+  
   return (
     <div>
       <ToastContainer
@@ -337,7 +405,6 @@ const checkout = ({ cart, addtoCart, clearCart, removeQty, subTotal }) => {
                           checked={form.paymentMethod === "cashOnDelivery"}
                           onChange={handleInputChange}
                           defaultChecked
-                     
                           className="sm rounded-full bg-blue-600 hover:bg-blue-500 focus:ring-purple-500 h-4 w-4 text-purple-600 border-gray-300 sm:text-base py-1 px-1"
                         />
                         <label
@@ -370,18 +437,16 @@ const checkout = ({ cart, addtoCart, clearCart, removeQty, subTotal }) => {
 
                   {form.paymentMethod === "cashOnDelivery" && (
                     <div className="shadow-lg rounded-lg m-4 p-2 sm:px-4 bg-pink-100 sm:text-lg">
-                     
                       <p>Payment will be made in cash upon delivery.</p>
                     </div>
                   )}
 
                   {form.paymentMethod === "bankPayment" && (
                     <div className="shadow-lg rounded-lg m-4 p-2 sm:px-4 bg-pink-100 sm:text-lg">
-                      
                       <p>
                         Please make the payment to the following bank account:
                       </p>
-                    <br></br>
+                      <br></br>
                       <p>Bank Name: UBL Bank</p>
                       <p>Account Number: 123456789</p>
                       <p>Routing Number: 987654321</p>
@@ -542,6 +607,6 @@ const checkout = ({ cart, addtoCart, clearCart, removeQty, subTotal }) => {
       )}
     </div>
   );
-};
+}
 
 export default checkout;

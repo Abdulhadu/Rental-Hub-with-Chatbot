@@ -31,9 +31,6 @@ export default function Index() {
       `}</style>
       <FullLayout>
         <Grid container spacing={0}>
-          <Grid item xs={12} lg={12}>
-            <SalesOverview />
-          </Grid>
           {/* ------------------------- row 1 ------------------------- */}
           <Grid item xs={12} lg={4}>
             <DailyActivity />

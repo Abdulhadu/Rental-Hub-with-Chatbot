@@ -140,7 +140,7 @@ const register = () => {
                   <br />
                   <Button
                     style={{
-                      backgroundColor: "#21b6ae",
+                      backgroundColor: "#7e22ce",
                       padding: "10px 16px",
                       text: "primary",
                       color: "white",

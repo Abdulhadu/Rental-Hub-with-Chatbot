@@ -125,7 +125,7 @@ export default function addProducts({ data }) {
                     name="Size"
                     value={form.Size}
                     onChange={(e) => setform({ ...form, Size: e.target.value })}
-                    label="Size"
+                    label="Variants"
                     variant="outlined"
                   />
                   <TextField
@@ -189,7 +189,7 @@ export default function addProducts({ data }) {
                 <br />
                 <Button
                   style={{
-                    backgroundColor: "#21b6ae",
+                    backgroundColor: "#7e22ce",
                     padding: "10px 16px",
                     text: "primary",
                     color: "white",

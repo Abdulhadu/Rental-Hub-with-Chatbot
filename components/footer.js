@@ -13,14 +13,24 @@ const footer = () => {
               </h2>
               <nav className="list-none mb-10">
                 <li>
-                  <a href="/tshirt" className="cursor-pointer text-gray-600 hover:text-purple-800">T-Shirts</a>
+                  <a href="/tshirt" className="cursor-pointer text-gray-600 hover:text-purple-800">Tent</a>
                 </li>
                 <li>
-                  <a href="/shoes" className="cursor-pointer text-gray-600 hover:text-purple-800">Shoes</a>
+                  <a href="/shoes" className="cursor-pointer text-gray-600 hover:text-purple-800">Furniture</a>
                 </li>
                 <li>
                   <a href="/menStyle" className="cursor-pointer text-gray-600 hover:text-purple-800">
-                    Men Accessories
+                    Lights
+                  </a>
+                </li>
+                <li>
+                  <a href="/menStyle" className="cursor-pointer text-gray-600 hover:text-purple-800">
+                   Generators
+                  </a>
+                </li>
+                <li>
+                  <a href="/menStyle" className="cursor-pointer text-gray-600 hover:text-purple-800">
+                    Speakers
                   </a>
                 </li>
               </nav>
@@ -37,7 +47,10 @@ const footer = () => {
                   <a href="/signup" className="cursor-pointer text-gray-600 hover:text-purple-800">Sign-Up</a>
                 </li>
                 <li>
-                  <a href="/orders" className="cursor-pointer text-gray-600 hover:text-purple-800">Dashboard</a>
+                  <a href="/dashboard" className="cursor-pointer text-gray-600 hover:text-purple-800">Dashboard</a>
+                </li>
+                <li>
+                  <a href="/orders" className="cursor-pointer text-gray-600 hover:text-purple-800">Track your Orders</a>
                 </li>
               </nav>
             </div>
@@ -100,18 +113,18 @@ const footer = () => {
         <div className="bg-purple-200">
           <div className="container px-5 py-6 mx-auto flex items-center sm:flex-row flex-col">
             <a className=" cursor-pointer drop-shadow-lg  flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-              <Image src="/Logo.png" height={70} width={250} />
+              <Image src="/rentalhub.png" height={70} width={250} />
             </a>
 
             <p className="text-sm text-gray-500 sm:ml-6 sm:mt-0 mt-4">
-              © 2023 — Versalvox
+              © 2023 Rental HUB
               <a
                 href="https://twitter.com/knyttneve"
                 rel="noopener noreferrer"
                 className="text-gray-600 ml-1"
                 target="_blank"
               >
-                @Abdul-Haadi
+                @LAWIZA MARUKH
               </a>
             </p>
             <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">

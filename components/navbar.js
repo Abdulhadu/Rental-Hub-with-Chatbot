@@ -34,17 +34,10 @@ const navbar = ({
         <nav className="bg-white border-gray-200">
           <div className="flex z-40 flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
             <div className="w-40 mt-5 sm:mt-0 sm:w-60">
-              <Image src="/Logo.png" height={70} width={250} />
+              <Image src="/rentalhub.png" height={70} width={250} />
             </div>
             <div className="flex items-center">
-              <div className="hidden sm:block">
-                <a
-                  href="tel:5541251234"
-                  className="mr-6 text-sm sm:text-lg text-gray-700 hover:underline"
-                >
-                  (+92) 317-5569121
-                </a>
-              </div>
+             
               {user.value == null && (
                 <button className=" inline-flex items-center mx-3 drop-shadow-lg  rounded-md bg-purple-700 text-slate-50 border-0 py-2 px-5 font-bold text-lg focus:outline-none hover:bg-gray-200 hover:text-purple-800   hover:font-bold mt-4 md:mt-0">
                   <a href="/login">Login</a>
@@ -80,18 +73,31 @@ const navbar = ({
                     >
                       <div className="z-50" role="none">
                         <ul>
+                        <li>
+                            {" "}
+                            <a
+                              href="/dashboard"
+                              className="text-gray-700 block px-4 py-2 font-semibold hover:bg-purple-300 text-sm"
+                              role="menuitem"
+                              tabIndex="-1"
+                              id="menu-item-1"
+                            >
+                              Dashboard
+                            </a>
+                          </li>
                           <li>
                             {" "}
                             <a
-                              href="#"
-                              className=" text-gray-700 block px-4 py-2 font-semibold hover:bg-purple-300 text-sm"
+                              href="/orders"
+                              className="text-gray-700 block px-4 py-2 font-semibold hover:bg-purple-300 text-sm"
                               role="menuitem"
                               tabIndex="-1"
-                              id="menu-item-0"
+                              id="menu-item-2"
                             >
-                              My Accounts
+                              Track your Orders
                             </a>
                           </li>
+                         
                           <li>
                             {" "}
                             <a
@@ -104,18 +110,7 @@ const navbar = ({
                               Support
                             </a>
                           </li>
-                          <li>
-                            {" "}
-                            <a
-                              href="/orders"
-                              className="text-gray-700 block px-4 py-2 font-semibold hover:bg-purple-300 text-sm"
-                              role="menuitem"
-                              tabIndex="-1"
-                              id="menu-item-2"
-                            >
-                              Orders
-                            </a>
-                          </li>
+                   
                           <li>
                             {" "}
                             <a
@@ -161,19 +156,24 @@ const navbar = ({
                       HOME
                     </a>
                   </Link>
-                  <Link href="/tshirt " legacyBehavior>
+                  <Link href="/tents" legacyBehavior>
                     <a className="text-sm link link-underline link-underline-black mr-5 font-bold  cursor-pointer text-purple-800 hover:text-gray-900 sm:text-lg ">
-                      T-SHIRT
+                      TENTS
                     </a>
                   </Link>
-                  <Link href="/hoodies" legacyBehavior>
+                  <Link href="/furniture" legacyBehavior>
                     <a className="text-sm link link-underline link-underline-black mr-5 font-bold  cursor-pointer text-purple-800 hover:text-gray-900 sm:text-lg ">
-                      HOODIES
+                      FURNITURE
                     </a>
                   </Link>
-                  <Link href="/menStyle" legacyBehavior>
+                  <Link href="/generator" legacyBehavior>
                     <a className="text-sm  link link-underline link-underline-black mr-5 font-bold  cursor-pointer text-purple-800 hover:text-gray-900 sm:text-lg ">
-                      MEN-STYLE
+                      GENERATORS
+                    </a>
+                  </Link>
+                  <Link href="/speakers" legacyBehavior>
+                    <a className="text-sm  link link-underline link-underline-black mr-5 font-bold  cursor-pointer text-purple-800 hover:text-gray-900 sm:text-lg ">
+                      SPEAKERS
                     </a>
                   </Link>
 

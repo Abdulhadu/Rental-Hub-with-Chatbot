@@ -2,126 +2,25 @@ import Head from "next/head";
 import React from "react";
 import mongoose from "mongoose";
 import Product from "../Models/Product";
+import Category from "../Models/category";
 import Link from "next/link";
 import PropTypes from "prop-types";
 
-export default function Home({ products }) {
+export default function Home({ products, categories }) {
   return (
     <div className="container">
       <Head>
-        <title>Versalvox</title>
+        <title>Rental HUB</title>
         <link rel="icon" href="logo.png" />
       </Head>
 
       {/* slider */}
       <div className="block">
-        <img className="w-screen" src="/slider-1.png"></img>
+        <img className="w-screen" src="/banner-3.jpg" alt="new"></img>
       </div>
 
-      {/* Latest Products  */}
-      <section className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto flex flex-wrap">
-          <div className="lg:w-2/3 mx-auto">
-            <div className="flex flex-wrap w-full bg-black py-32 px-10 relative mb-4">
-              <img
-                alt="gallery"
-                className="w-full object-cover h-full object-center block opacity-75 absolute inset-0"
-                src="card-2.jpg"
-              />
-              <div className="text-center relative z-10 w-full">
-                <h2 className="text-4xl drop-shadow-xl text-white font-bold title-font mb-2">
-                  Wear the Fashion
-                </h2>
-                <p className="leading-relaxed text-white">
-                  {/* Upto <b className="text-3xl drop-shadow-xl">50% OFF</b> on all{" "}
-                  <b>SHIRTS</b>{" "} */}
-                </p>
-                <a href="/menStyle" className="mt-3 text-xl sm:text-2xl text-slate-300 inline-flex items-center">
-                  Explore Fashion
-                  <svg
-                    fill="none"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    className="w-4 h-4 ml-2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7"></path>
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <div className="flex flex-wrap -mx-2">
-              <div className="px-2 w-1/2">
-                <div className="flex flex-wrap w-full bg-purple-800   sm:py-24 py-16 sm:px-10 px-6 relative">
-                  <img
-                    alt="gallery"
-                    className="w-full object-cover h-full object-center block opacity-50 absolute inset-0"
-                    src="card-3.jpg"
-                  />
-                  <div className="text-center relative z-10 w-full">
-                    <h2 className="text-xl sm:text-2xl text-white drop-shadow-lg font-bold title-font mb-2">
-                      Men SHoes
-                    </h2>
-                    <p className="leading-relaxed text-white">
-                      Skateboard +1 mustache fixie paleo lumbersexual.
-                    </p>
-                    <a href="/shoes" className="mt-3 text-sm sm:text-xl  text-slate-300  inline-flex items-center">
-                      Explore More
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        className="w-4 h-4 ml-2"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="px-2 w-1/2">
-                <div className="flex flex-wrap w-full bg-purple-800   sm:py-24 py-16 sm:px-10 px-6 relative">
-                  <img
-                    alt="gallery"
-                    className="w-full object-cover h-full object-center block opacity-50 absolute inset-0"
-                    src="card-1.png"
-                  />
-                  <div className="text-center relative z-10 w-full">
-                    <h2 className="text-xl sm:text-2xl text-white drop-shadow-lg font-bold title-font mb-2">
-                      T-Shirts
-                    </h2>
-                    <p className="leading-relaxed text-white">
-                      Get the best men Perfunme And Men care products.
-                    </p>
-                    <a href="/tshiirt" className="mt-3 text-sm sm:text-xl  text-slate-300  inline-flex items-center">
-                      Explore More
-                      <svg
-                        fill="none"
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        className="w-4 h-4 ml-2"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Catagories */}
-      <h2 className="text-xs text-center text-purple-800 tracking-widest font-bold title-font mb-1">
+      <h2 className="text-xs mt-10 text-center text-purple-800 tracking-widest font-bold title-font mb-1">
         Explore our Featured
       </h2>
       <h1 className="text-center sm:text-3xl text-2xl font-bold title-font text-gray-900">
@@ -131,215 +30,91 @@ export default function Home({ products }) {
         <section className="text-gray-600 body-font">
           <div className="container px-5 py-24 mx-auto ">
             <div className="flex flex-wrap -m-4 ">
-              <div className="p-4 md:w-1/3 hover:drop-shadow-xl">
-                <div className="h-full border-2 border-gray-300 border-opacity-60 rounded-lg overflow-hidden">
-                  <img
-                    className="lg:h-48 md:h-36 w-full object-cover object-center"
-                    src="card-1.png"
-                    alt="blog"
-                  />
-                  <div className="p-6 bg-white">
-                    <h2 className="tracking-widest text-xs title-font font-medium text-purple-800">
-                      CATEGORY
-                    </h2>
-                    <h1 className="title-font text-lg font-bold text-gray-900 mb-3">
-                      Men Dresses
-                    </h1>
-                    <p className="leading-relaxed mb-3">
-                      Photo booth fam kinfolk cold-pressed sriracha leggings
-                      jianbing microdosing tousled waistcoat.
-                    </p>
-                    <div className="flex items-center flex-wrap ">
-                      <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
-                        Learn More
-                        <svg
-                          className="w-4 h-4 ml-2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M5 12h14"></path>
-                          <path d="M12 5l7 7-7 7"></path>
-                        </svg>
-                      </a>
-                      <span className="text-purple-900 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                        <svg
-                          className="w-4 h-4 mr-1"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                          <circle cx="12" cy="12" r="3"></circle>
-                        </svg>
-                        1.2K
-                      </span>
-                      <span className="text-purple-900 inline-flex items-center leading-none text-sm">
-                        <svg
-                          className="w-4 h-4 mr-1"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-                        </svg>
-                        6
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="p-4 md:w-1/3 hover:drop-shadow-xl ">
-                <div className=" h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden ">
-                  <img
-                    className="lg:h-48 md:h-36 w-full object-cover object-center"
-                    src="card-2.jpg"
-                    alt="blog"
-                  />
-                  <div className="p-6 bg-white">
-                    <h2 className="tracking-widest text-xs title-font font-medium text-purple-800">
-                      CATEGORY
-                    </h2>
-                    <h1 className="title-font text-lg font-bold text-gray-900 mb-3">
-                      Shoes
-                    </h1>
-                    <p className="leading-relaxed mb-3">
-                      Photo booth fam kinfolk cold-pressed sriracha leggings
-                      jianbing microdosing tousled waistcoat.
-                    </p>
-                    <div className="flex items-center flex-wrap">
-                      <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
-                        Learn More
-                        <svg
-                          className="w-4 h-4 ml-2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M5 12h14"></path>
-                          <path d="M12 5l7 7-7 7"></path>
-                        </svg>
-                      </a>
-                      <span className="text-purple-900 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                        <svg
-                          className="w-4 h-4 mr-1"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                          <circle cx="12" cy="12" r="3"></circle>
-                        </svg>
-                        1.2K
-                      </span>
-                      <span className="text-purple-900 inline-flex items-center leading-none text-sm">
-                        <svg
-                          className="w-4 h-4 mr-1"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="p-4 md:w-1/3  hover:drop-shadow-xl">
-                <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                  <div>
+              {categories.map((category) => (
+                <div
+                  key={category._id}
+                  className="p-4 md:w-1/3 hover:drop-shadow-xl"
+                >
+                  <div className="h-full border-2 border-gray-300 border-opacity-60 rounded-lg overflow-hidden">
                     <img
                       className="lg:h-48 md:h-36 w-full object-cover object-center"
-                      src="card-3.jpg"
-                      alt="blog"
+                      src={category.image}
+                      alt={category.name}
                     />
-                  </div>
-                  <div className="p-6 bg-white">
-                    <h2 className="tracking-widest text-xs title-font font-medium text-purple-800">
-                      CATEGORY
-                    </h2>
-                    <h1 className="title-font text-lg font-bold text-gray-900 mb-3">
-                      Accessories
-                    </h1>
-                    <p className="leading-relaxed mb-3">
-                      Photo booth fam kinfolk cold-pressed sriracha leggings
-                      jianbing microdosing tousled waistcoat.
-                    </p>
-                    <div className="flex items-center flex-wrap ">
-                      <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
-                        Learn More
-                        <svg
-                          className="w-4 h-4 ml-2"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M5 12h14"></path>
-                          <path d="M12 5l7 7-7 7"></path>
-                        </svg>
-                      </a>
-                      <span className="text-purple-900 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
-                        <svg
-                          className="w-4 h-4 mr-1"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                          <circle cx="12" cy="12" r="3"></circle>
-                        </svg>
-                        1.2K
-                      </span>
-                      <span className="text-purple-900 inline-flex items-center leading-none text-sm">
-                        <svg
-                          className="w-4 h-4 mr-1"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          fill="none"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
-                        </svg>
-                        6
-                      </span>
+                    <div className="p-6 bg-white">
+                      <h2 className="tracking-widest text-xs title-font font-medium text-purple-800">
+                        CATEGORY
+                      </h2>
+                      <h1 className="title-font text-lg font-bold text-gray-900 mb-3">
+                        {category.name}
+                      </h1>
+                      <p className="leading-relaxed mb-3">
+                        {category.description}
+                      </p>
+                      <p className="leading-relaxed text-violet-800 mb-3">
+                        {category.featured
+                          ? "Featured Category"
+                          : "Regular Category"}
+                      </p>
+                      <div className="flex items-center flex-wrap">
+                        <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
+                          Learn More
+                          <svg
+                            className="w-4 h-4 ml-2"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            fill="none"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M5 12h14"></path>
+                            <path d="M12 5l7 7-7 7"></path>
+                          </svg>
+                        </a>
+                        <span className="text-purple-900 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-200">
+                          <svg
+                            className="w-4 h-4 mr-1"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            fill="none"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                          </svg>
+                          1.2K
+                        </span>
+                        <span className="text-purple-900 inline-flex items-center leading-none text-sm">
+                          <svg
+                            className="w-4 h-4 mr-1"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            fill="none"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
+                          </svg>
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
       </div>
-
+      {/* Banner  */}
+      <section className="body-font lg:px-20 mx-auto">
+        <img src="banner-2.jpg" height={130} width={1400} alt="new" />
+      </section>
       {/* Products  */}
-      <section className="body-font lg:px-8 mx-auto max-w-7xl">
+      <section className="mt-10 body-font lg:px-8 mx-auto max-w-7xl">
         <h2 className="text-xs text-center text-purple-800 tracking-widest font-bold title-font mb-1">
           Explore our Products
         </h2>
@@ -428,7 +203,7 @@ export default function Home({ products }) {
 
       {/* Banner  */}
       <section className="body-font lg:px-20 mx-auto">
-        <img src="banner-1.jpg" height={130} width={1400} />
+        <img src="banner-1.jpg" height={130} width={1400} alt="new" />
       </section>
 
       {/* Testimonials   */}
@@ -630,6 +405,7 @@ export default function Home({ products }) {
 }
 Home.propTypes = {
   products: PropTypes.object.isRequired,
+  categories: PropTypes.array.isRequired, // Add this line
 };
 export async function getServerSideProps() {
   if (!mongoose.connections[0].readyState) {
@@ -660,7 +436,13 @@ export async function getServerSideProps() {
       }
     }
   }
+
+  const categories = await Category.find({});
+
   return {
-    props: { products: JSON.parse(JSON.stringify(tshirt)) }, // will be passed to the page component as props
+    props: {
+      products: JSON.parse(JSON.stringify(tshirt)),
+      categories: JSON.parse(JSON.stringify(categories)),
+    },
   };
 }

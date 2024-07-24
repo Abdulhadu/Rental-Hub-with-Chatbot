@@ -7,9 +7,9 @@ import typography from "./Typoraphy";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#03c9d7",
-      light: "#e5fafb",
-      dark: "#05b2bd",
+      main: "#9333ea",
+      light: "#f3e8ff",
+      dark: "#581c87",
       contrastText: "#ffffff",
     },
     secondary: {
@@ -19,9 +19,8 @@ const theme = createTheme({
       contrastText: "#ffffff",
     },
     success: {
-      main: "#00c292",
-
-      dark: "#00964b",
+      main: "#6b21a8",
+      dark: "#581c87",
       contrastText: "#ffffff",
     },
     danger: {
@@ -29,17 +28,15 @@ const theme = createTheme({
       light: "#fdf3f5",
     },
     info: {
-      main: "#0bb2fb",
-      light: "#a7e3f4",
+      main: "#7e22ce",
+      light: "#e9d5ff",
     },
     error: {
       main: "#e46a76",
-
       dark: "#e45a68",
     },
     warning: {
       main: "#fec90f",
-
       dark: "#dcb014",
       contrastText: "#ffffff",
     },

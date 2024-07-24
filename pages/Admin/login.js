@@ -140,7 +140,7 @@ const User = () => {
               <Button
                 style={{
                   borderRadius: 35,
-                  backgroundColor: "#21b6ae",
+                  backgroundColor: "#7e22ce",
                   padding: "10px 16px",
                   fontSize: "15px",
                 }}

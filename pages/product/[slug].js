@@ -240,7 +240,7 @@ const Post = ({ buyNow, addtoCart, Variants, products }) => {
                     )}
                 </div>
                 <div className="flex ml-6 items-center">
-                  <span className="mr-3">Size</span>
+                  <span className="mr-3">Rental Period</span>
                   <div className="relative">
                     <select
                       value={Size}
@@ -249,20 +249,20 @@ const Post = ({ buyNow, addtoCart, Variants, products }) => {
                       }}
                       className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-200 focus:border-purple-800 text-base pl-3 pr-10"
                     >
-                      {Object.keys(Variants[Color]).includes("SM") && (
-                        <option value={"SM"}>SM</option>
+                      {Object.keys(Variants[Color]).includes("1 Mounth") && (
+                        <option value={"1 Mounth"}>1 Month Rent</option>
                       )}
-                      {Object.keys(Variants[Color]).includes("M") && (
-                        <option value={"M"}>M</option>
+                      {Object.keys(Variants[Color]).includes("2 Mounth") && (
+                        <option value={"2 Mounth"}>2 Months Rent</option>
                       )}
-                      {Object.keys(Variants[Color]).includes("L") && (
-                        <option value={"L"}>L</option>
+                      {Object.keys(Variants[Color]).includes("3 Mounth") && (
+                        <option value={"3 Mounth"}>3 Months Rent</option>
                       )}
-                      {Object.keys(Variants[Color]).includes("XL") && (
-                        <option value={"XL"}>XL</option>
+                      {Object.keys(Variants[Color]).includes("6 Mounth") && (
+                        <option value={"6 Mounth"}>6 Months Rent</option>
                       )}
-                      {Object.keys(Variants[Color]).includes("XXL") && (
-                        <option value={"XXL"}>XXL</option>
+                      {Object.keys(Variants[Color]).includes("12 Mounth") && (
+                        <option value={"12 Mounth"}>12 Months Rent</option>
                       )}
                     </select>
                     <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
@@ -300,7 +300,7 @@ const Post = ({ buyNow, addtoCart, Variants, products }) => {
                     }}
                     className="text-sm sm:text-lg flex mt-2 sm:ml-4 rounded-lg font-semibold text-white bg-purple-800 border-0 py-2 px-3 sm:py-2 sm:px-6 focus:outline-none hover:bg-indigo-600"
                   >
-                    Order Now
+                    Rent Now
                   </button>
                   <button
                     onClick={() => {

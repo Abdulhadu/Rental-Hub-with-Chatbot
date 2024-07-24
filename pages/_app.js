@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import { useEffect } from "react";
 import Footer from "../components/footer";
 import NavBar from "../components/navbar";
+import ChatBot from "../components/chatbot";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -125,6 +126,7 @@ function MyApp({ Component, pageProps }) {
         removeQty={removeQty}
         subTotal={subTotal}
       />
+      <ChatBot/>
 
       <Component
         cart={cart}

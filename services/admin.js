@@ -277,3 +277,70 @@ export const deleteAdmin = async (id) => {
     console.log("error in deleting Admin Data => " + error);
   }
 };
+
+export const getUserDetails = async (username) => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/admin/user/${username}`, {
+      method: 'GET',
+    });
+    if (!res.ok) {
+      throw new Error(`Error fetching user details: ${res.statusText}`);
+    }
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching user details:", error);
+    throw error;
+  }
+};
+
+export const updateUserDetails = async (username, userData) => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/users/${username}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userData),
+    });
+    if (!res.ok) {
+      throw new Error(`Error updating user details: ${res.statusText}`);
+    }
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Error updating user details:", error);
+    throw error;
+  }
+};
+
+
+
+// ------------------------------ User ---------------------------- 
+export const getUserById = async (username) => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/getUserById?userId=${username}`, {
+      method: "GET",
+    });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.log("Error in getting specific user (services) => " + error);
+  }
+};
+
+export const updateUser = async (username, userData) => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/updateUser?userId=${username}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    });
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.log("Error in updating user data (services) => " + error);
+  }
+};

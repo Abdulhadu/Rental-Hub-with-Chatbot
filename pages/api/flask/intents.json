@@ -1,0 +1,64 @@
+{
+    "intents": [
+      {
+        "tag": "greeting",
+        "patterns": ["Hi there", "How are you", "Is anyone there?", "Hey", "Hola", "Hello", "Good day"],
+        "responses": ["Hello!", "Good to see you again!", "Hi there, how can I help?"],
+        "context": [""]
+      },
+      {
+        "tag": "goodbye",
+        "patterns": ["Bye", "See you later", "Goodbye", "Nice chatting to you, bye", "Till next time"],
+        "responses": ["See you!", "Have a nice day!", "Bye! Come back again soon."],
+        "context": [""]
+      },
+      {
+        "tag": "thanks",
+        "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+        "responses": ["My pleasure!", "You're welcome!"],
+        "context": [""]
+      },
+      {
+        "tag": "product_inquiry",
+        "patterns": ["What products do you offer?", "Tell me about your products", "What do you sell?", "Do you have electronics?", "Can I buy clothes here?"],
+        "responses": ["We offer a wide range of products including electronics, clothing, home appliances, and much more. You can browse our categories on the website to find exactly what you need."],
+        "context": [""]
+      },
+      {
+        "tag": "availability",
+        "patterns": ["Is this item in stock?", "Do you have this product?", "Can I buy this now?", "Is this available?"],
+        "responses": ["To check the availability of a specific item, please enter the product name or SKU in our search bar on the website. If it's in stock, you will be able to add it to your cart."],
+        "context": [""]
+      },
+      {
+        "tag": "shipping",
+        "patterns": ["What are your shipping options?", "Do you offer free shipping?", "How long does shipping take?", "What is the delivery time?", "Can I track my order?"],
+        "responses": ["We offer various shipping options, including standard and expedited shipping. Free shipping is available on orders over a certain amount. Delivery times typically range from 3-7 business days for standard shipping. You can track your order using the tracking link provided in your order confirmation email."],
+        "context": [""]
+      },
+      {
+        "tag": "returns",
+        "patterns": ["What is your return policy?", "Can I return an item?", "How do I return a product?", "What are the conditions for returning?", "Can I get a refund?"],
+        "responses": ["We accept returns within 30 days of purchase. Items must be in their original condition. To initiate a return, please visit our returns page and follow the instructions. Refunds will be processed within 5-7 business days after we receive the returned item."],
+        "context": [""]
+      },
+      {
+        "tag": "payment",
+        "patterns": ["What payment methods do you accept?", "Can I pay with a credit card?", "Do you accept PayPal?", "What are your payment options?", "How can I pay for my order?"],
+        "responses": ["We accept a variety of payment methods including credit cards (Visa, MasterCard, American Express), PayPal, and other secure payment options. You can select your preferred payment method at checkout."],
+        "context": [""]
+      },
+      {
+        "tag": "order_status",
+        "patterns": ["Where is my order?", "How can I track my order?", "What is the status of my order?", "When will my order arrive?", "Can I check my order status?"],
+        "responses": ["You can track your order status using the tracking number provided in your order confirmation email. Simply enter the tracking number on our tracking page to see the latest updates."],
+        "context": [""]
+      },
+      {
+        "tag": "offers",
+        "patterns": ["Do you have any discounts?", "Are there any current offers?", "What are your promotions?", "Do you offer coupons?", "Can I get a discount?"],
+        "responses": ["We regularly offer discounts and promotions on various products. Please check our offers page on the website for the latest deals and coupon codes."],
+        "context": [""]
+      }
+    ]
+  }
