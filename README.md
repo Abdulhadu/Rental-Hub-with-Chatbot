@@ -1,5 +1,5 @@
 # Rental Hub
-
+![Alt text](public/Website%20SS/ss%20(1).png)
 Rental Hub is a comprehensive platform that facilitates the rental of products through an intuitive user interface and a powerful admin dashboard. The application is built using modern web technologies and offers seamless user authentication, payment integration, and a chatbot for enhanced user experience.
 
 ## Table of Contents
@@ -51,6 +51,9 @@ Rental Hub is a comprehensive platform that facilitates the rental of products t
 ## Functions
 
 ### User View of Website
+![Alt text](public/Website%20SS/ss%20(3).png)
+![Alt text](public/Website%20SS/ss%20(7).png)
+### Functions or Featuures
 - Rent products
 - Check product availability in your city
 - View order details
@@ -58,6 +61,7 @@ Rental Hub is a comprehensive platform that facilitates the rental of products t
 - Receive order completion updates
 
 ### Admin Dashboard
+![Alt text](public/Website%20SS/ss%20(9).png)
 - **Products**:
   - Add products
   - View products
