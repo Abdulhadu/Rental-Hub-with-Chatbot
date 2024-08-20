@@ -124,7 +124,7 @@ const footer = () => {
                 className="text-gray-600 ml-1"
                 target="_blank"
               >
-                @LAWIZA MARUKH
+                @ABDUL HAADI
               </a>
             </p>
             <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
