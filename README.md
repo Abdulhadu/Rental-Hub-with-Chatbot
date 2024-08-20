@@ -52,7 +52,6 @@ Rental Hub is a comprehensive platform that facilitates the rental of products t
 
 ### User View of Website
 ![Alt text](public/Website%20SS/ss%20(3).png)
-![Alt text](public/Website%20SS/ss%20(7).png)
 ### Functions or Featuures
 - Rent products
 - Check product availability in your city
